@@ -1,0 +1,8 @@
+{
+  "buildCommand": "pnpm --filter @melo/shared build && pnpm --filter @melo/web build",
+  "outputDirectory": "apps/web/dist",
+  "installCommand": "pnpm install",
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
