@@ -1,0 +1,43 @@
+{
+  "name": "melo",
+  "version": "1.0.0",
+  "description": "Collaborative Spotify queue with real-time voting - Turn any gathering into a democratic music experience",
+  "private": true,
+  "keywords": [
+    "spotify",
+    "music",
+    "collaborative",
+    "queue",
+    "voting",
+    "real-time",
+    "socket.io",
+    "react",
+    "fastify",
+    "typescript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/melo.git"
+  },
+  "license": "MIT",
+  "author": "Your Name <your.email@example.com>",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "turbo": "^2.4.0",
+    "typescript": "^5.7.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"]
+  },
+  "packageManager": "pnpm@10.29.3",
+  "engines": {
+    "node": ">=22.0.0",
+    "pnpm": ">=10.0.0"
+  }
+}
