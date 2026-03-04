@@ -87,3 +87,8 @@ tmp/
 
 # Misc
 .pnpm-approve-builds
+
+# Internal documentation (not for public repo)
+ROADMAP.md
+PRD.md
+TRD.md
