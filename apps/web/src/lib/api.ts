@@ -1,4 +1,4 @@
-const API_BASE = "/api/v1";
+const API_BASE = `${import.meta.env.VITE_API_URL ?? ""}/api/v1`;
 
 /** Wrapper around fetch that handles JSON + auth headers */
 export async function api<T>(

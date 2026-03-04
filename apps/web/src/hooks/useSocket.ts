@@ -19,7 +19,7 @@ export function useSocket({ sessionCode, token }: UseSocketOptions) {
   const [sessionEnded, setSessionEnded] = useState(false);
 
   useEffect(() => {
-    const socket: MeloSocket = io({
+    const socket: MeloSocket = io(import.meta.env.VITE_API_URL ?? "", {
       auth: { sessionCode, token },
       transports: ["websocket", "polling"],
     });
