@@ -65,7 +65,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export async function handleOAuthCallback(
   code: string,
 ): Promise<{ host: Host; accessToken: string }> {
-  const res = await fetch("/api/v1/auth/spotify/callback", {
+  const res = await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/auth/spotify/callback`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     credentials: "include",
