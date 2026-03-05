@@ -43,7 +43,7 @@ export function QueueList({
         headers["x-participant-token"] = token;
       }
 
-      await fetch(`/api/v1/sessions/${code}/vote`, {
+      await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/vote`, {
         method: "POST",
         headers,
         body: JSON.stringify({ spotifyTrackId }),

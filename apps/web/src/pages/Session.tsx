@@ -108,7 +108,7 @@ function SessionRoom({
   // Fetch queue
   const fetchQueue = useCallback(async () => {
     try {
-      const res = await fetch(`/api/v1/sessions/${code}/queue`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/queue`, {
         headers: getHeaders(),
       });
       if (res.ok) {
@@ -129,7 +129,7 @@ function SessionRoom({
   // Fetch playback state
   const fetchPlayback = useCallback(async () => {
     try {
-      const res = await fetch(`/api/v1/sessions/${code}/playback`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/playback`, {
         headers: getHeaders(),
       });
       if (res.ok) {
@@ -143,7 +143,7 @@ function SessionRoom({
 
   // Initial load — session info, queue, playback state
   useEffect(() => {
-    fetch(`/api/v1/sessions/${code}`, { headers: getHeaders() })
+    fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}`, { headers: getHeaders() })
       .then((r) => r.json())
       .then((data: { participantCount?: number }) => {
         if (data.participantCount !== undefined) {
@@ -163,7 +163,7 @@ function SessionRoom({
     const handleReconnect = () => {
       fetchQueue();
       fetchPlayback();
-      fetch(`/api/v1/sessions/${code}`, { headers: getHeaders() })
+      fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}`, { headers: getHeaders() })
         .then((r) => r.json())
         .then((data: { participantCount?: number }) => {
           if (data.participantCount !== undefined) {
@@ -275,7 +275,7 @@ function SessionRoom({
   const handleStartPlaying = async () => {
     setPlayLoading(true);
     try {
-      const res = await fetch(`/api/v1/sessions/${code}/playback/play`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/playback/play`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -296,7 +296,7 @@ function SessionRoom({
     if (!confirm("Are you sure you want to end this session?")) return;
     setEnding(true);
     try {
-      await fetch(`/api/v1/sessions/${code}`, {
+      await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

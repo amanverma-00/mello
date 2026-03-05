@@ -58,7 +58,7 @@ export function SearchModal({
         }
 
         const res = await fetch(
-          `/api/v1/sessions/${code}/search?q=${encodeURIComponent(trimmed)}`,
+          `${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/search?q=${encodeURIComponent(trimmed)}`,
           { headers },
         );
         if (res.ok) {
@@ -90,7 +90,7 @@ export function SearchModal({
         headers["x-participant-token"] = token;
       }
 
-      const res = await fetch(`/api/v1/sessions/${code}/queue`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/queue`, {
         method: "POST",
         headers,
         body: JSON.stringify({ spotifyTrackId: track.spotifyTrackId }),

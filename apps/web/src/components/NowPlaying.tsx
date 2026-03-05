@@ -90,7 +90,7 @@ export function NowPlayingBar({
   const handlePlay = async () => {
     setLoading(true);
     try {
-      await fetch(`/api/v1/sessions/${code}/playback/play`, {
+      await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/playback/play`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -105,7 +105,7 @@ export function NowPlayingBar({
   const handlePause = async () => {
     setLoading(true);
     try {
-      await fetch(`/api/v1/sessions/${code}/playback/pause`, {
+      await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/playback/pause`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -120,7 +120,7 @@ export function NowPlayingBar({
   const handleSkip = async () => {
     setLoading(true);
     try {
-      await fetch(`/api/v1/sessions/${code}/playback/skip`, {
+      await fetch(`${import.meta.env.VITE_API_URL ?? ""}/api/v1/sessions/${code}/playback/skip`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
